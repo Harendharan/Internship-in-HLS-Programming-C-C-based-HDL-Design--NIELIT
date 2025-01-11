@@ -1,4 +1,4 @@
-# FFT Design and Implementation for FPGA
+# FFT IMPLEMENTATION USING HLS
 
 ## Introduction
 
