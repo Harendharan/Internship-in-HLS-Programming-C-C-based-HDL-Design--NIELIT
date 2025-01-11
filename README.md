@@ -155,17 +155,11 @@ After running C synthesis for FFT function in Vivado HLS, the system achieved an
 
 ##### Latency Report:
 
-| **LATENCY**     |           | **INTERVAL**    |           |          |
+| **LATENCY**     |  **LATENCY**   | **INTERVAL**    | **INTERVAL** |          |
 |------------------|-----------|-----------------|-----------|----------|
 | **MIN**         | **MAX**   | **MIN**         | **MAX**   |  **TYPE** |
 | 83.3            | 83.3      | 83.3            | 83.3      | none     |
 
-##### Latency Report:
-| **LATENCY**                 | **INTERVAL**                |       -  |
-|-----------------------------|-----------------------------|----------|
-|      **MIN** | **MAX**      |      **MIN** | **MAX**      | **TYPE** |
-|--------------|--------------|--------------|--------------|----------|
-| 83.3         | 83.3         | 83.3         | 83.3         | none     |
 
 #### Utilization Estimates:
 
@@ -205,7 +199,7 @@ After running C synthesis for FFT function in Vivado HLS, the system achieved an
 
 #### Co-simulation Report:
 
-|         |            | **LATENCY** |        |           | **INTERVAL** |       |        |
+|         |            | **LATENCY** | **LATENCY** | **LATENCY** | **INTERVAL** | **INTERVAL**| **INTERVAL**|
 |---------|------------|----------|--------|-------------|----------|--------|-----------|
 | **RTL** | **STATUS** | **MIN** | **AVG**  | **MAX**  | **MIN** | **AVG** | **MAX** |
 |   VHDL  | NA         |    NA   |    NA    |    NA    |   NA    | NA      | NA      |
