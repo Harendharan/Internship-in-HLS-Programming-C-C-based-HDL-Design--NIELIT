@@ -28,7 +28,8 @@ The methodology for developing an FFT design involves initially creating a high-
 
 The FFT design was crafted with a high degree of flexibility, allowing the FFT size \( N \) to be easily configurable. This adaptability was crucial for accommodating various application requirements. The design supported both fixed-point and floating-point arithmetic, allowing users to choose between higher precision with floating-point or more efficient resource usage with fixed-point arithmetic. The emphasis was on developing a generalized FFT implementation rather than adhering to any specific FFT algorithm. This approach ensured that the design could be broadly applicable and adaptable to different scenarios without being constrained by a particular algorithmic structure.
 
-![32 point FFT](https://github.com/user-attachments/assets/a81d55c9-c25a-4df0-aa5a-f1c2923705d9)
+![127676203-d51eab76-11e9-4a71-af22-0a580097acea](https://github.com/user-attachments/assets/ccfc5908-3453-48c6-8b76-046974a046cd)
+
 
 ### Optimization Techniques
 
