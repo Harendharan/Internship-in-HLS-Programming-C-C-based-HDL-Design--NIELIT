@@ -159,63 +159,59 @@ After running C synthesis for FFT function in Vivado HLS, the system achieved an
 |--------------|--------------|--------------|--------------|----------|
 | 83.3         | 83.3         | 83.3         | 83.3         | none     |
 
-#### Resource Utilization Report:
+#### Utilization Estimates:
+
+##### Resource Utilization Report:
 | **NAME**  | **BRAM_18K** | **DSP48E** | **FF** | **LUT** |
 |-----------|--------------|------------|--------|---------|
+|  DSP      |  -           |    -       |    -   |   -     |
 | Expression|     -        |    -       |   0    | 102     |         
 | FIFO      |     -        |    -       | 560453 |    -    |         
 | Instance  | 0            | 4          | -      | 805     |         
 | Memory    | 0            | -          | 197    | 115     |         
-| Multiplexer                                      | -        | -            | 1210       | 864    |         |
-| Register                                        | -        | -            | 1600       |        |         |
-| Total                                          | 0        | 4            | 2          | 1886   |         |
-| Available                                        | 100      | 90           | 41600      | 20800  |         |
-| Utilization (%)                                  | 0        | 4            | 2          | 9      |         |
+| Multiplexer| -           | -          | 1210   | 864     |         
+| Register   | -        | -            | 1600       |   -     |         
+| Total      | 0        | 4            | 2          | 1886   |         
+| Available  | 100      | 90           | 41600      | 20800  |         
+| Utilization (%)| 0        | 4            | 2          | 9      |     
 
-#### Interface Report:
-| **Table of Interface Report** | **RTL PORTS**     | **DIR** | **BITS** | **PROTOCOL** | **SOURCE OBJECT** | **C TYPE** |
-|----------------------------------------|-------------------|---------|----------|--------------|-------------------|------------|
-| ap_clk                                 | in                | 1        | ap_ctrl_hls  | FFT             | return_value       |
-| ap_clk_n                               | In                | 1        | ap_ctrl_hls  | FFT             | return_value       |
-| ap_start                               | In                | 1        | ap_ctrl_hls  | FFT             | return_value       |
-| ap_done                                | out               | 1        | ap_ctrl_hls  | FFT             | return_value       |
-| ap_idle                                | out               | 1        | ap_ctrl
+#### Interface:
+
+##### Interface Report:
+| **RTL PORTS**     | **DIR** | **BITS** | **PROTOCOL** | **SOURCE OBJECT** | **C TYPE** |
+|-------------------|---------|------=---|--------------|-------------------|------------|
+| ap_clk            | in      | 1        | ap_ctrl_hls  | FFT               | return_value |
+| ap_clk_n          | in      | 1        | ap_ctrl_hls  | FFT               | return_value |
+| ap_start          | in      | 1        | ap_ctrl_hls  | FFT               | return_value |
+| ap_done           | out     | 1        | ap_ctrl_hls  | FFT               | return_value |
+| ap_idle           | out     | 1        | ap_ctrl_hls  | FFT               | return_value | 
+| ap_ready          | out     | 1        | ap_ctrl_hls  | FFT               | return_value |
+| data_IN_TDATA     | in      | 32       | axis         | data_IN           | pointer      |
+| data_IN_TVALID    | in      | 1        | axis         | data_IN           | pointer      |
+| data_IN_TREADY    | out     | 1        | axis         | data_IN           | pointer      |
+| data_OUT_TDATA    | out     | 32       | axis         | data_OUT          | pointer      |
+| data_OUT_TVALID   | out     | 1        | axis         | data_OUT          | pointer      |
+| data_OUT_TREADY   | in      | 1        | axis         | data_OUT          | pointer      |
+
+### Results of C/RTL Co-simulation:
+
+#### Co-simulation Report:
+
+|         |            | **LATENCY**                   | **INTERVAL**                |
+|---------|------------|-------------------------------|-----------------------------|
+| **RTL** | **STATUS** | **MIN** | **AVG**  | **MAX**  | **MIN** | **AVG** | **MAX** |
+|---------|------------|---------|----------|----------|---------|---------|---------|
+|   VHDL  | NA         |    NA   |    NA    |    NA    |   NA    | NA      | NA      |
+| VERILOG | PASS       |833      | 833      |   833    |834      | 834     | 834     |
+
+### Simulation result of Waveform Viewer:
+
+![image](https://github.com/user-attachments/assets/0eb45f23-2bbd-4695-b46b-1b2083f40193)
 
 ---
 
 ## CONCLUSION AND FUTURE SCOPE:
 
-Vivado HLS, a tool designed for high-level synthesis, often defaults to a conservative approach 
-regarding resource utilization. This default strategy is geared towards minimizing the use of 
-hardware resources, which can result in increased latency and restricted parallel processing 
-capabilities. In its base configuration, Vivado HLS tends to prioritize safety and simplicity, 
-leading to designs that may not fully exploit the potential of the hardware, particularly in terms 
-of processing speed and concurrency. To overcome these limitations and enhance performance, 
-significant manual intervention is necessary. One of the key strategies to improve performance 
-involves decoupling the stages of butterfly computations within the FFT algorithm. Butterfly 
-computations are fundamental to FFT processing, and by breaking down these stages into 
-independent operations, it is possible to reduce the computational overhead and increase the 
-speed of the entire process. Additionally, optimizing the use of block RAMs, lookup tables 
-(LUTs), and flip-flops is crucial. By strategically balancing these resources, it is feasible to 
-minimize latency. For instance, reducing the dependence on block RAMs in favor of using 
-more LUTs and flip-flops can lead to a more efficient design, cutting down the latency of FFT 
-computation to N log 2 N + N cycles. Despite the advantages of Vivado HLS in simplifying 
-the high-level exploration and synthesis of efficient IP core designs, achieving an optimal 
-hardware implementation typically demands substantial manual adjustments. The process 
-involves fine-tuning various aspects of the design, including memory usage, data flow, and 
-computational efficiency. This level of customization ensures that the final implementation can 
-achieve performance metrics that are on par with or even exceed those of specialized IP cores 
-available from FPGA vendors. The results of this approach illustrate that, with appropriate 
-modifications and directive applications, the performance and cost of the FFT implementation 
-can be competitive with high-end, vendor-specific IP cores. The ability to tailor the synthesis 
-process to meet specific performance goals highlights the flexibility and power of Vivado HLS 
-as a tool for hardware design. Looking forward, there are several promising directions for 
-further enhancing FFT implementations and related DSP modules. One of the key future 
-developments involves creating an advanced guided exploration tool that integrates seamlessly 
-with the current FFT model. This tool aims to streamline the exploration of various design 
-options, making it easier to optimize performance while reducing the need for extensive manual
-tuning. By providing automated assistance in evaluating different configurations and 
-performance trade-offs, this guided exploration tool could significantly accelerate the design 
-process and improve overall efficiency.
+Vivado HLS, a tool designed for high-level synthesis, often defaults to a conservative approach regarding resource utilization. This default strategy is geared towards minimizing the use of hardware resources, which can result in increased latency and restricted parallel processing capabilities. In its base configuration, Vivado HLS tends to prioritize safety and simplicity, leading to designs that may not fully exploit the potential of the hardware, particularly in terms of processing speed and concurrency. To overcome these limitations and enhance performance, significant manual intervention is necessary. One of the key strategies to improve performance involves decoupling the stages of butterfly computations within the FFT algorithm. Butterfly computations are fundamental to FFT processing, and by breaking down these stages into independent operations, it is possible to reduce the computational overhead and increase the speed of the entire process. Additionally, optimizing the use of block RAMs, lookup tables (LUTs), and flip-flops is crucial. By strategically balancing these resources, it is feasible to minimize latency. For instance, reducing the dependence on block RAMs in favor of using more LUTs and flip-flops can lead to a more efficient design, cutting down the latency of FFT computation to N log 2 N + N cycles. Despite the advantages of Vivado HLS in simplifying the high-level exploration and synthesis of efficient IP core designs, achieving an optimal hardware implementation typically demands substantial manual adjustments. The process involves fine-tuning various aspects of the design, including memory usage, data flow, and computational efficiency. This level of customization ensures that the final implementation can achieve performance metrics that are on par with or even exceed those of specialized IP cores available from FPGA vendors. The results of this approach illustrate that, with appropriate modifications and directive applications, the performance and cost of the FFT implementation can be competitive with high-end, vendor-specific IP cores. The ability to tailor the synthesis process to meet specific performance goals highlights the flexibility and power of Vivado HLS as a tool for hardware design. Looking forward, there are several promising directions for further enhancing FFT implementations and related DSP modules. One of the key future developments involves creating an advanced guided exploration tool that integrates seamlessly with the current FFT model. This tool aims to streamline the exploration of various design options, making it easier to optimize performance while reducing the need for extensive manual tuning. By providing automated assistance in evaluating different configurations and performance trade-offs, this guided exploration tool could significantly accelerate the design process and improve overall efficiency.
 
 ---
