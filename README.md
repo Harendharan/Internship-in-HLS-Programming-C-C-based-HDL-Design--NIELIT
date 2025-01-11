@@ -154,7 +154,7 @@ After running C synthesis for FFT function in Vivado HLS, the system achieved an
 | ap_ck     | 10.00      | 7.345              |  1.25           |
 
 ##### Latency Report:
-| **LATENCY**                 | **INTERVAL**                |          |
+| **LATENCY**                 | **INTERVAL**                |       -  |
 |-----------------------------|-----------------------------|----------|
 |      **MIN** | **MAX**      |      **MIN** | **MAX**      | **TYPE** |
 |--------------|--------------|--------------|--------------|----------|
