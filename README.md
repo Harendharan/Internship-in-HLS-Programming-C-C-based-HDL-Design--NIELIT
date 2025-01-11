@@ -154,6 +154,13 @@ After running C synthesis for FFT function in Vivado HLS, the system achieved an
 | ap_ck     | 10.00      | 7.345              |  1.25           |
 
 ##### Latency Report:
+
+| **LATENCY**     |           | **INTERVAL**    |           |          |
+|------------------|-----------|-----------------|-----------|----------|
+| **MIN**         | **MAX**   | **MIN**         | **MAX**   |  **TYPE** |
+| 83.3            | 83.3      | 83.3            | 83.3      | none     |
+
+##### Latency Report:
 | **LATENCY**                 | **INTERVAL**                |       -  |
 |-----------------------------|-----------------------------|----------|
 |      **MIN** | **MAX**      |      **MIN** | **MAX**      | **TYPE** |
@@ -198,10 +205,9 @@ After running C synthesis for FFT function in Vivado HLS, the system achieved an
 
 #### Co-simulation Report:
 
-|         |            | **LATENCY**                   | **INTERVAL**                |
-|---------|------------|-------------------------------|-----------------------------|
+|         |            | **LATENCY** |        |           | **INTERVAL** |       |        |
+|---------|------------|----------|--------|-------------|----------|--------|-----------|
 | **RTL** | **STATUS** | **MIN** | **AVG**  | **MAX**  | **MIN** | **AVG** | **MAX** |
-|---------|------------|---------|----------|----------|---------|---------|---------|
 |   VHDL  | NA         |    NA   |    NA    |    NA    |   NA    | NA      | NA      |
 | VERILOG | PASS       |833      | 833      |   833    |834      | 834     | 834     |
 
