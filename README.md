@@ -206,7 +206,8 @@ After running C synthesis for FFT function in Vivado HLS, the system achieved an
 
 ### Simulation result of Waveform Viewer:
 
-![image](https://github.com/user-attachments/assets/0eb45f23-2bbd-4695-b46b-1b2083f40193)
+![image](https://github.com/user-attachments/assets/ed74c517-f018-4420-8b25-b07d9b48fb84)
+
 
 ---
 
