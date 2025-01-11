@@ -146,28 +146,31 @@ Test data is generated using a Python script that outputs random complex values 
 After running C synthesis for FFT function in Vivado HLS, the system achieved an estimated 7.3 nanoseconds for a target clock period of 10 nanoseconds. Latency and initiation interval are 833 clock cycles without any optimizations applied. Resource usage and interface details are shown in the synthesis report. Input signals include clock, reset, start signal, while output signals include done, idle, and ready signals.
 
 #### Performance Estimates:
-| **Timing Report** | **CLOCK TARGET ESTIMATED (ns)** | **UNCERTAINTY** |
-|----------------------------|---------------------------------|----------------|
-| ap_ck                       | 10.00                           | 7.345          |
-|                             |                                 | 1.25           |
 
-#### Latency Report:
-| **Latency Report** | **LATENCY**  | **INTERVAL** | **MIN** | **MAX** | **TYPE** |
-|-----------------------------|--------------|--------------|---------|---------|----------|
-|                             | 83.3         | 83.3         | 83.3    | 83.3    | none     |
+##### Timing Report:
+| **CLOCK** | **TARGET** | **ESTIMATED (ns)** | **UNCERTAINTY** |
+|-----------|------------|--------------------|-----------------|
+| ap_ck     | 10.00      | 7.345              |  1.25           |
+
+##### Latency Report:
+| **LATENCY**                 | **INTERVAL**                |          |
+|-----------------------------|-----------------------------|----------|
+|      **MIN** | **MAX**      |      **MIN** | **MAX**      | **TYPE** |
+|--------------|--------------|--------------|--------------|----------|
+| 83.3         | 83.3         | 83.3         | 83.3         | none     |
 
 #### Resource Utilization Report:
-| **Table of Resource Utilization Report** | **NAME**  | **BRAM_18K** | **DSP48E** | **FF** | **LUT** |
-|-----------------------------------------------------|----------|--------------|------------|--------|---------|
-| **Expression**                                       | -        | -            | 0          | 102    |         |
-| **FIFO**                                            | -        | -            | 560453     |        |         |
-| **Instance**                                         | 0        | 4            | -          | 805    |         |
-| **Memory**                                           | 0        | -            | 197        | 115    |         |
-| **Multiplexer**                                      | -        | -            | 1210       | 864    |         |
-| **Register**                                         | -        | -            | 1600       |        |         |
-| **Total**                                            | 0        | 4            | 2          | 1886   |         |
-| **Available**                                        | 100      | 90           | 41600      | 20800  |         |
-| **Utilization (%)**                                  | 0        | 4            | 2          | 9      |         |
+| **NAME**  | **BRAM_18K** | **DSP48E** | **FF** | **LUT** |
+|-----------|--------------|------------|--------|---------|
+| Expression|     -        |    -       |   0    | 102     |         
+| FIFO      |     -        |    -       | 560453 |    -    |         
+| Instance  | 0            | 4          | -      | 805     |         
+| Memory    | 0            | -          | 197    | 115     |         
+| Multiplexer                                      | -        | -            | 1210       | 864    |         |
+| Register                                        | -        | -            | 1600       |        |         |
+| Total                                          | 0        | 4            | 2          | 1886   |         |
+| Available                                        | 100      | 90           | 41600      | 20800  |         |
+| Utilization (%)                                  | 0        | 4            | 2          | 9      |         |
 
 #### Interface Report:
 | **Table of Interface Report** | **RTL PORTS**     | **DIR** | **BITS** | **PROTOCOL** | **SOURCE OBJECT** | **C TYPE** |
