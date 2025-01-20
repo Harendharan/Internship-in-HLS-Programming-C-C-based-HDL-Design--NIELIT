@@ -115,9 +115,9 @@ To generate sample input and output data for testing the FFT implementation, the
 The first step in the FFT process was to write a high-level description of the FFT algorithm in C/C++. This involved defining the FFT function to handle complex input data and creating a test bench to validate its functionality. The test bench generated input signals using Python’s NumPy library, which were then applied to the C/C++ FFT description. The outputs were compared with the expected results, also calculated using NumPy. This initial step ensured that the FFT algorithm was correctly implemented in a high-level language before proceeding to further design stages. Hence, a 32-point FFT code is implemented with the bit-reversal positions precomputed and stored in the header files.
 
 The Twiddle Factor is decomposed into the following form:
-- \( \text{exp}(ia + ib) = \text{exp}(ia) \times \text{exp}(ib) = \text{exp}(ia) + Z \times \text{exp}(ia) \)
-- Where \( Z = \text{exp}(ib) - 1 = -(1 - \cos(b)) + i\sin(b) = -2\sin^2(b/2) + i\sin(b) \)
-- \( Z \) is precomputed and stored in the header file.
+    exp(i(a + b)) = exp(ia) * exp(ib) = exp(ia) + Z * exp(ia)
+- Where Z = exp(ib) - 1 = -(1 - cos(b)) + i*sin(b) = -2*sin²(b/2) + i*sin(b)
+- Z is precomputed and stored in the header file.
 
 ### Fixed-Point Conversion:
 To optimize the design for efficient hardware utilization, the system was optionally refined to use fixed-point arithmetic instead of floating-point. This involved converting the data types in the C/C++ description to `ap_fixed`, a data type provided by Vivado HLS for fixed-point arithmetic. The number of bits for both the integer and fractional parts was carefully selected to balance precision with resource utilization. This step is crucial for applications requiring lower power consumption and higher speed, as fixed-point arithmetic generally demands less hardware and is faster to compute compared to floating-point arithmetic.
