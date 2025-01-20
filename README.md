@@ -180,20 +180,22 @@ After running C synthesis for FFT function in Vivado HLS, the system achieved an
 #### Interface:
 
 ##### Interface Report:
-| **RTL PORTS**     | **DIR** | **BITS** | **PROTOCOL** | **SOURCE OBJECT** | **C TYPE** |
-|-------------------|---------|------=---|--------------|-------------------|------------|
-| ap_clk            | in      | 1        | ap_ctrl_hls  | FFT               | return_value |
-| ap_clk_n          | in      | 1        | ap_ctrl_hls  | FFT               | return_value |
-| ap_start          | in      | 1        | ap_ctrl_hls  | FFT               | return_value |
-| ap_done           | out     | 1        | ap_ctrl_hls  | FFT               | return_value |
-| ap_idle           | out     | 1        | ap_ctrl_hls  | FFT               | return_value | 
-| ap_ready          | out     | 1        | ap_ctrl_hls  | FFT               | return_value |
-| data_IN_TDATA     | in      | 32       | axis         | data_IN           | pointer      |
-| data_IN_TVALID    | in      | 1        | axis         | data_IN           | pointer      |
-| data_IN_TREADY    | out     | 1        | axis         | data_IN           | pointer      |
-| data_OUT_TDATA    | out     | 32       | axis         | data_OUT          | pointer      |
-| data_OUT_TVALID   | out     | 1        | axis         | data_OUT          | pointer      |
-| data_OUT_TREADY   | in      | 1        | axis         | data_OUT          | pointer      |
+
+| RTL PORTS        | DIR   | BITS | PROTOCOL   | SOURCE OBJECT | C TYPE       |
+|-------------------|-------|------|------------|---------------|--------------|
+| ap_clk           | in    | 1    | ap_ctrl_hls| FFT           | return_value |
+| ap_clk_n         | in    | 1    | ap_ctrl_hls| FFT           | return_value |
+| ap_start         | in    | 1    | ap_ctrl_hls| FFT           | return_value |
+| ap_done          | out   | 1    | ap_ctrl_hls| FFT           | return_value |
+| ap_idle          | out   | 1    | ap_ctrl_hls| FFT           | return_value |
+| ap_ready         | out   | 1    | ap_ctrl_hls| FFT           | return_value |
+| data_IN_TDATA    | in    | 32   | axis       | data_IN       | pointer      |
+| data_IN_TVALID   | in    | 1    | axis       | data_IN       | pointer      |
+| data_IN_TREADY   | out   | 1    | axis       | data_IN       | pointer      |
+| data_OUT_TDATA   | out   | 32   | axis       | data_OUT      | pointer      |
+| data_OUT_TVALID  | out   | 1    | axis       | data_OUT      | pointer      |
+| data_OUT_TREADY  | in    | 1    | axis       | data_OUT      | pointer      |
+
 
 ### Results of C/RTL Co-simulation:
 
